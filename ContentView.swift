@@ -17,10 +17,8 @@ struct ContentView: View {
                     .foregroundColor(isDarkMode ? .white : .black)
                     .padding(.top, 40)
 
-//                Spacer(minLength: 10)
 
                 QuoteCardView(quote: viewModel.currentQuote, isDarkMode: isDarkMode)
-//                    .frame(minHeight: 300)
                    .frame(height: 300)
                     .padding(.horizontal)
 

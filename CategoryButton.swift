@@ -19,7 +19,6 @@ struct CategoryButton: View {
             .frame(width: 130, height: 70)
             .background(isDarkMode ? Color.purple : Color.teal)
             .cornerRadius(16)
-//            .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 3)
         }
         .buttonStyle(.plain)
     }

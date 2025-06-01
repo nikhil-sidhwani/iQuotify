@@ -1,16 +1,13 @@
 import SwiftUI
 
 struct AppTheme {
+
     static var lightBackground: LinearGradient {
         LinearGradient(
-            gradient: Gradient(colors: [
-                Color(red: 0.92, green: 1.0, blue: 0.95),   // misty mint
-                Color(red: 0.80, green: 0.94, blue: 0.85)   // light sage
-            ]),
+            gradient: Gradient(colors: [.mint.opacity(0.3), .green.opacity(0.1)]),
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
-
     }
 
     static var darkBackground: LinearGradient {

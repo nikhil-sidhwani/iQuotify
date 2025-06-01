@@ -6,7 +6,7 @@ class QuoteViewModel: ObservableObject {
     private var timer: Timer?
 
     init() {
-        self.currentQuote = quotes.randomElement() ?? Quote(text: "No quotes available", author: "System", category: .motivation)
+        self.currentQuote = quotes.randomElement() ?? Quote(text: "No quotes available", author: "NA", category: .motivation)
         startTimer()
     }
 

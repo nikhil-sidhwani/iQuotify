@@ -18,6 +18,5 @@ struct QuoteCardView: View {
         .padding()
         .background(isDarkMode ? AppTheme.darkCard : AppTheme.lightCard)
         .cornerRadius(20)
-//        .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
     }
 }
