@@ -1,39 +1,31 @@
-//
-//  QuoteViewModel.swift
-//  Daily Quotes
-//
-//  Created by Nikhil on 31/05/25.
-//
-
-
 import Foundation
-import Combine
 
 class QuoteViewModel: ObservableObject {
     @Published var currentQuote: Quote
-    private var cancellable: AnyCancellable?
     private let quotes = QuoteRepository.allQuotes
+    private var timer: Timer?
 
     init() {
-        self.currentQuote = quotes.randomElement()!
+        self.currentQuote = quotes.randomElement() ?? Quote(text: "No quotes available", author: "System", category: .motivation)
         startTimer()
     }
 
     func fetchQuote(for category: QuoteCategory) {
-        if let quote = quotes.filter({ $0.category == category }).randomElement() {
-            currentQuote = quote
+        let filtered = quotes.filter { $0.category == category }
+        if let newQuote = filtered.randomElement() {
+            currentQuote = newQuote
         }
     }
 
     private func startTimer() {
-        cancellable = Timer.publish(every: 60, on: .main, in: .common)
-            .autoconnect()
-            .sink { [weak self] _ in
-                self?.currentQuote = self?.quotes.randomElement() ?? self!.currentQuote
+        timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { timer in
+            if let randomQuote = self.quotes.randomElement() {
+                self.currentQuote = randomQuote
             }
+        }
     }
 
     deinit {
-        cancellable?.cancel()
+        timer?.invalidate()
     }
 }

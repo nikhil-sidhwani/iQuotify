@@ -1,11 +1,3 @@
-//
-//  Quote.swift
-//  Daily Quotes
-//
-//  Created by Nikhil on 31/05/25.
-//
-
-
 import Foundation
 
 struct Quote: Identifiable {

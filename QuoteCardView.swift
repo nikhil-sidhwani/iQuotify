@@ -1,11 +1,3 @@
-//
-//  QuoteCardView.swift
-//  Daily Quotes
-//
-//  Created by Nikhil on 31/05/25.
-//
-
-
 import SwiftUI
 
 struct QuoteCardView: View {
